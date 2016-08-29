@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		9665127F1D73FF4900B11803 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9665127E1D73FF4900B11803 /* AppDelegate.swift */; };
-		966512811D73FF4900B11803 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966512801D73FF4900B11803 /* ViewController.swift */; };
 		966512841D73FF4900B11803 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966512821D73FF4900B11803 /* Main.storyboard */; };
 		966512861D73FF4900B11803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 966512851D73FF4900B11803 /* Assets.xcassets */; };
 		966512891D73FF4900B11803 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 966512871D73FF4900B11803 /* LaunchScreen.storyboard */; };
+		966512921D7434F000B11803 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966512911D7434F000B11803 /* GalleryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9665127B1D73FF4900B11803 /* Image Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Image Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9665127E1D73FF4900B11803 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		966512801D73FF4900B11803 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		966512831D73FF4900B11803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		966512851D73FF4900B11803 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		966512881D73FF4900B11803 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9665128A1D73FF4900B11803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		966512911D7434F000B11803 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +54,22 @@
 		9665127D1D73FF4900B11803 /* Image Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				966512901D7434B700B11803 /* ViewControllers */,
 				9665127E1D73FF4900B11803 /* AppDelegate.swift */,
-				966512801D73FF4900B11803 /* ViewController.swift */,
 				966512821D73FF4900B11803 /* Main.storyboard */,
 				966512851D73FF4900B11803 /* Assets.xcassets */,
 				966512871D73FF4900B11803 /* LaunchScreen.storyboard */,
 				9665128A1D73FF4900B11803 /* Info.plist */,
 			);
 			path = "Image Gallery";
+			sourceTree = "<group>";
+		};
+		966512901D7434B700B11803 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				966512911D7434F000B11803 /* GalleryViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				966512811D73FF4900B11803 /* ViewController.swift in Sources */,
 				9665127F1D73FF4900B11803 /* AppDelegate.swift in Sources */,
+				966512921D7434F000B11803 /* GalleryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +261,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Image Gallery/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-Tigerspike.Image-Gallery";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tigerspike.Image-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -264,7 +272,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Image Gallery/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-Tigerspike.Image-Gallery";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Tigerspike.Image-Gallery";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
