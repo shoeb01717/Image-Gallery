@@ -17,6 +17,7 @@
 		966512921D7434F000B11803 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966512911D7434F000B11803 /* GalleryViewController.swift */; };
 		966512981D743D3700B11803 /* WebServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966512971D743D3700B11803 /* WebServiceHandler.swift */; };
 		969CE14C1D7C4C4300CAFB89 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CE14B1D7C4C4300CAFB89 /* Utils.swift */; };
+		969CE14F1D7C7DCC00CAFB89 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CE14E1D7C7DCC00CAFB89 /* PhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		966512911D7434F000B11803 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		966512971D743D3700B11803 /* WebServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHandler.swift; sourceTree = "<group>"; };
 		969CE14B1D7C4C4300CAFB89 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		969CE14E1D7C7DCC00CAFB89 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				962895BB1D747B54004AC743 /* Constants.swift */,
+				969CE14D1D7C7DA100CAFB89 /* Views */,
 				966512961D743D2900B11803 /* DataAccessLayer */,
 				966512901D7434B700B11803 /* ViewControllers */,
 				9665127E1D73FF4900B11803 /* AppDelegate.swift */,
@@ -93,6 +96,14 @@
 				969CE14B1D7C4C4300CAFB89 /* Utils.swift */,
 			);
 			path = DataAccessLayer;
+			sourceTree = "<group>";
+		};
+		969CE14D1D7C7DA100CAFB89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				969CE14E1D7C7DCC00CAFB89 /* PhotoCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				960CF4431D76D25B00B16E2D /* DataModel.swift in Sources */,
+				969CE14F1D7C7DCC00CAFB89 /* PhotoCollectionViewCell.swift in Sources */,
 				9665127F1D73FF4900B11803 /* AppDelegate.swift in Sources */,
 				966512981D743D3700B11803 /* WebServiceHandler.swift in Sources */,
 				969CE14C1D7C4C4300CAFB89 /* Utils.swift in Sources */,

@@ -21,3 +21,30 @@ class Utils: NSObject {
         return date!
     }
 }
+
+
+extension UIImageView {
+    public func imageFromUrl(urlString: String, completionHandler: (isSuccess: Bool , error:NSError) -> Void) {
+
+        let nsURL = NSURL(string: urlString)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(nsURL!) {
+            (data, response, error) in
+            
+            if (error == nil) {
+                NSLog("No Error!")
+                let image:UIImage = UIImage(data: data!)!
+                self.image = image
+                completionHandler(isSuccess: true, error: error!)
+            }
+            else {
+                NSLog("Error!")
+                completionHandler(isSuccess: false, error: error!)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
+}

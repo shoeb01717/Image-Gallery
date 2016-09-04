@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Photo {
     
@@ -42,6 +43,5 @@ struct Photo {
         if let tags:String = photoDictionary["tags"] as? String {
             self.tags = tags.componentsSeparatedByString(" ")
         }
-
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class GalleryViewController: UIViewController {
 
+    private let reuseIdentifier = "PhotoCell"
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,4 +34,43 @@ class GalleryViewController: UIViewController {
     }
     */
 
+}
+
+extension GalleryViewController: UICollectionViewDataSource {
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
+        cell.backgroundColor = UIColor.whiteColor()
+        cell.photoImageView.imageFromUrl(String) { (isSuccess, error) in
+            
+        }
+
+        return cell
+    }
+
+}
+
+extension GalleryViewController: UICollectionViewDelegate {
+
+}
+
+extension GalleryViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        return CGSize(width: 100, height: 100)
+    }
+    
+
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
 }
