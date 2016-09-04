@@ -12,7 +12,9 @@ import Foundation
 struct Constants {
     
     struct WebService {
-        static let WebServiceBaseAddress = "https://api.flickr.com/services/feeds/photos_public.gne"
+        static let WebServiceBaseAddress = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=?"
     }
+    
+    static let flickrDateFormat = "yyyy-MM-dd'T'HH:mm:ss'-'Z"
     
 }

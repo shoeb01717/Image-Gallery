@@ -9,13 +9,13 @@
 import UIKit
 
 class WebServiceHandler: NSObject {
-    
+
     static let sharedInstance = WebServiceHandler()
     let webServiceAddress = Constants.WebService.WebServiceBaseAddress
     let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     var dataTask: NSURLSessionDataTask?
 
-    func fetchGalleryDataFromFlickr()  {
+    func fetchGalleryDataFromFlickr(onSuccess completionHandler:((photos:[Photo]) -> Void))  {
         if dataTask != nil {
             dataTask?.cancel()
         }
@@ -34,8 +34,11 @@ class WebServiceHandler: NSObject {
             } else if let httpResponse = response as? NSHTTPURLResponse {
             
                 if httpResponse.statusCode == 200 {
-                    let datastring = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                    print(datastring)
+                    let parseJSON = ParseJSON()
+                    let photosArray = parseJSON.parseFlickrPublicJSONFeed(data!)
+                    if photosArray.count > 0 {
+                        completionHandler(photos: photosArray)
+                    }
                 }
             }
         }
