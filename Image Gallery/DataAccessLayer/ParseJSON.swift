@@ -12,15 +12,6 @@ typealias commonType = [String: AnyObject]
 
 class ParseJSON: NSObject {
     
-//    func StrinToDateConversion(string: String, format : String) -> NSDate {
-//        let dateString = string // change to your date format
-//        
-//        let dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = format
-//        
-//        let date = dateFormatter.dateFromString(dateString)
-//        return date!
-//    }
 
     func parseFlickrPublicJSONFeed( data: NSData) -> [Photo] {
         var photos = [Photo]()
