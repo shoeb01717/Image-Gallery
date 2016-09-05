@@ -17,7 +17,7 @@ class ParseJSON: NSObject {
         var photos = [Photo]()
         var json = commonType()
         
-        
+    
         do{
             json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as! commonType
             print(json)
