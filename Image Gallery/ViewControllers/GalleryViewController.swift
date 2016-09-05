@@ -50,7 +50,7 @@ extension GalleryViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
-        cell.backgroundColor = UIColor.blackColor()
+        cell.backgroundColor = UIColor.clearColor()
         let photo = self.photoArray[indexPath.row]
         cell.photoImageView.imageFromUrl(photo.media) { (isSuccess) in
             
@@ -70,8 +70,15 @@ extension GalleryViewController : UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let photo = self.photoArray[indexPath.row]
-
-        return CGSize(width: photo.imageWidth, height: photo.imageHeight)
+        var width = Float(photo.imageWidth)
+        var height = Float(photo.imageHeight)
+        
+        
+        if width > 100 {
+            height = (height/width) * 100.0
+            width = 100
+        }
+        return CGSize(width: Int(width), height: Int(height))
     }
     
 
