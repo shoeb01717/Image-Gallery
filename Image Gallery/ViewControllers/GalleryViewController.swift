@@ -45,9 +45,6 @@ extension GalleryViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
         cell.backgroundColor = UIColor.whiteColor()
-        cell.photoImageView.imageFromUrl(String) { (isSuccess, error) in
-            
-        }
 
         return cell
     }
