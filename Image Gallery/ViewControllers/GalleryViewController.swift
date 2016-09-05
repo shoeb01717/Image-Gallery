@@ -50,11 +50,22 @@ extension GalleryViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
-        cell.backgroundColor = UIColor.clearColor()
+        cell.backgroundColor = UIColor.blackColor()
         let photo = self.photoArray[indexPath.row]
         cell.photoImageView.imageFromUrl(photo.media) { (isSuccess) in
             
         }
+        
+        var width = Float(photo.imageWidth)
+        var height = Float(photo.imageHeight)
+        
+        
+        if width > 100 {
+            height = (height/width) * 100.0
+            width = 100
+        }
+        cell.photoImageView.frame.size.width = CGFloat(width)
+        cell.photoImageView.frame.size.height = CGFloat(height)
         return cell
     }
 
@@ -66,20 +77,11 @@ extension GalleryViewController: UICollectionViewDelegate {
 
 extension GalleryViewController : UICollectionViewDelegateFlowLayout {
     
-    func collectionView(collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let photo = self.photoArray[indexPath.row]
-        var width = Float(photo.imageWidth)
-        var height = Float(photo.imageHeight)
-        
-        
-        if width > 100 {
-            height = (height/width) * 100.0
-            width = 100
-        }
-        return CGSize(width: Int(width), height: Int(height))
-    }
+//    func collectionView(collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//            return CGSize(width: Int(width), height: Int(height))
+//    }
     
 
     func collectionView(collectionView: UICollectionView,

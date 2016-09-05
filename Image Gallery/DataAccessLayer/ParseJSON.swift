@@ -16,10 +16,11 @@ class ParseJSON: NSObject {
     func parseFlickrPublicJSONFeed( data: NSData) -> [Photo] {
         var photos = [Photo]()
         var json = commonType()
-        
+        var jsonString = NSString(data: data, encoding: NSUTF8StringEncoding)
+        jsonString = jsonString?.stringByReplacingOccurrencesOfString("\\'", withString: "'")
     
         do{
-            json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments) as! commonType
+            json = try NSJSONSerialization.JSONObjectWithData(jsonString!.dataUsingEncoding(NSUTF8StringEncoding)!, options: NSJSONReadingOptions.AllowFragments) as! commonType
             print(json)
         } catch {
             print(error)
