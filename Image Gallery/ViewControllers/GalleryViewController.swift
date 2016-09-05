@@ -49,15 +49,18 @@ class GalleryViewController: UIViewController {
     }
     
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let photo = sender as! Photo
+        let detailViewController = segue.destinationViewController as! DetailViewController
+        detailViewController.photo = photo
     }
-    */
+
 
 }
 
@@ -111,6 +114,12 @@ extension GalleryViewController: UICollectionViewDataSource {
 }
 
 extension GalleryViewController: UICollectionViewDelegate {
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let photo = self.photoArray[indexPath.row]
+        self.performSegueWithIdentifier(Constants.detailSegue, sender: photo as AnyObject)
+
+    }
 
 }
 
