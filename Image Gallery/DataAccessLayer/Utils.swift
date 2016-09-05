@@ -20,11 +20,20 @@ class Utils: NSObject {
         let date = dateFormatter.dateFromString(dateString)
         return date!
     }
+    
+    static func findValueFromHtmlString(givenString:String, substring:String, startIndexAdvance:Int, endIndexAdvance:Int) -> String {
+        var rangeofSubsString = givenString.rangeOfString(substring)
+        rangeofSubsString?.startIndex = (rangeofSubsString?.endIndex)!.advancedBy(startIndexAdvance)
+        rangeofSubsString?.endIndex = (rangeofSubsString?.endIndex)!.advancedBy(endIndexAdvance)
+        let value = givenString.substringWithRange(rangeofSubsString!)
+        return value
+    }
 }
 
 
+
 extension UIImageView {
-    public func imageFromUrl(urlString: String, completionHandler: (isSuccess: Bool , error:NSError) -> Void) {
+    public func imageFromUrl(urlString: String, completionHandler: (isSuccess: Bool) -> Void) {
 
         let nsURL = NSURL(string: urlString)
         
@@ -34,12 +43,17 @@ extension UIImageView {
             if (error == nil) {
                 NSLog("No Error!")
                 let image:UIImage = UIImage(data: data!)!
-                self.image = image
-                completionHandler(isSuccess: true, error: error!)
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.image = image
+                    completionHandler(isSuccess: true)
+                })
+                
             }
             else {
                 NSLog("Error!")
-                completionHandler(isSuccess: false, error: error!)
+                dispatch_async(dispatch_get_main_queue(),{
+                    completionHandler(isSuccess: false)
+                })
             }
         }
         

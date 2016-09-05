@@ -10,11 +10,17 @@ import UIKit
 
 class GalleryViewController: UIViewController {
 
+    @IBOutlet var galleryCollectionView: UICollectionView!
     private let reuseIdentifier = "PhotoCell"
-    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    private let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    var photoArray = [Photo]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        WebServiceHandler.sharedInstance.fetchGalleryDataFromFlickr { (photos) in
+            self.photoArray = photos
+            self.galleryCollectionView.reloadData()
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -39,13 +45,16 @@ class GalleryViewController: UIViewController {
 extension GalleryViewController: UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return self.photoArray.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PhotoCollectionViewCell
-        cell.backgroundColor = UIColor.whiteColor()
-
+        cell.backgroundColor = UIColor.blackColor()
+        let photo = self.photoArray[indexPath.row]
+        cell.photoImageView.imageFromUrl(photo.media) { (isSuccess) in
+            
+        }
         return cell
     }
 
@@ -60,8 +69,9 @@ extension GalleryViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                                sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        return CGSize(width: 100, height: 100)
+        let photo = self.photoArray[indexPath.row]
+
+        return CGSize(width: photo.imageWidth, height: photo.imageHeight)
     }
     
 

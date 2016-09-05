@@ -20,6 +20,10 @@ struct Photo {
      var author : String!
      var author_id : String!
      var tags : [String]!
+     var imageWidth:Int!
+     var imageHeight:Int!
+    
+    
     
     
     init(photoDictionary: NSDictionary)  {
@@ -34,6 +38,8 @@ struct Photo {
         
         if let description = photoDictionary["description"] {
             self.description = description as! String
+            self.imageWidth = Int(Utils.findValueFromHtmlString(self.description, substring: "width", startIndexAdvance: 2, endIndexAdvance: 5))!
+            self.imageHeight = Int(Utils.findValueFromHtmlString(self.description, substring: "height", startIndexAdvance: 2, endIndexAdvance: 5))!
         }
         
         if let link = photoDictionary["link"] {
@@ -42,6 +48,11 @@ struct Photo {
         
         if let tags:String = photoDictionary["tags"] as? String {
             self.tags = tags.componentsSeparatedByString(" ")
+        }
+        if let media:[String: String] = photoDictionary["media"] as? [String: String]{
+            if let m = media["m"] as String!{
+                self.media = m
+            }
         }
     }
 }

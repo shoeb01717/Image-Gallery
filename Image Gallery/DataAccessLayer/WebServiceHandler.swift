@@ -37,7 +37,9 @@ class WebServiceHandler: NSObject {
                     let parseJSON = ParseJSON()
                     let photosArray = parseJSON.parseFlickrPublicJSONFeed(data!)
                     if photosArray.count > 0 {
-                        completionHandler(photos: photosArray)
+                        dispatch_async(dispatch_get_main_queue(),{
+                            completionHandler(photos: photosArray)
+                        })
                     }
                 }
             }
