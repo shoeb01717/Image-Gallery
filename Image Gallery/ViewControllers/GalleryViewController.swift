@@ -24,8 +24,8 @@ class GalleryViewController: UIViewController {
 
         gradientLayer.frame = self.view.bounds
         
-        let color1 = UIColor.yellowColor().colorWithAlphaComponent(0.7).CGColor as CGColorRef
-        let color2 = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.2).CGColor as CGColorRef
+        let color1 = UIColor.yellowColor().colorWithAlphaComponent(0.2).CGColor as CGColorRef
+        let color2 = UIColor(red: 1.0, green: 0, blue: 0, alpha: 0.1).CGColor as CGColorRef
         let color3 = UIColor.clearColor().CGColor as CGColorRef
         let color4 = UIColor(white: 0.0, alpha: 0.7).CGColor as CGColorRef
         gradientLayer.colors = [color1, color2, color3, color4]
@@ -80,15 +80,25 @@ extension GalleryViewController: UICollectionViewDataSource {
         cell.photoImageView.imageFromUrl(photo.media) { (isSuccess) in
             
         }
-        var width = Float(photo.imageWidth)
-        var height = Float(photo.imageHeight)
+        var width:Float?
+        if let widthValue:Float = Float(photo.imageWidth) {
+            width = widthValue
+        } else {
+            width = 100.0
+        }
+        var height:Float?
+        if let heightValue:Float = Float(photo.imageHeight) {
+            height = heightValue
+        } else {
+            height = 100.0
+        }
         
         if width > 100 {
-            height = (height/width) * 100.0
+            height = (height!/width!) * 100.0
             width = 100
         }
-        cell.photoWidth.constant = CGFloat(width)
-        cell.photoHeight.constant = CGFloat(height)
+        cell.photoWidth.constant = CGFloat(width!)
+        cell.photoHeight.constant = CGFloat(height!)
         
         cell.layer.cornerRadius = 10.0
         cell.layer.borderColor = UIColor.grayColor().CGColor
