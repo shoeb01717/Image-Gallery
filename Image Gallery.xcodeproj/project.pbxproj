@@ -18,6 +18,7 @@
 		966512981D743D3700B11803 /* WebServiceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966512971D743D3700B11803 /* WebServiceHandler.swift */; };
 		969CE14C1D7C4C4300CAFB89 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CE14B1D7C4C4300CAFB89 /* Utils.swift */; };
 		969CE14F1D7C7DCC00CAFB89 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CE14E1D7C7DCC00CAFB89 /* PhotoCollectionViewCell.swift */; };
+		969CE1511D7D66F700CAFB89 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969CE1501D7D66F700CAFB89 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		966512971D743D3700B11803 /* WebServiceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHandler.swift; sourceTree = "<group>"; };
 		969CE14B1D7C4C4300CAFB89 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		969CE14E1D7C7DCC00CAFB89 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		969CE1501D7D66F700CAFB89 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				966512911D7434F000B11803 /* GalleryViewController.swift */,
+				969CE1501D7D66F700CAFB89 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				969CE1511D7D66F700CAFB89 /* DetailViewController.swift in Sources */,
 				960CF4431D76D25B00B16E2D /* DataModel.swift in Sources */,
 				969CE14F1D7C7DCC00CAFB89 /* PhotoCollectionViewCell.swift in Sources */,
 				9665127F1D73FF4900B11803 /* AppDelegate.swift in Sources */,

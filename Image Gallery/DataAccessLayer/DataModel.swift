@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct Photo {
+class Photo {
     
      var title : String!
      var link : String!
