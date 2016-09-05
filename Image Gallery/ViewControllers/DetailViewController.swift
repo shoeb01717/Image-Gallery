@@ -98,9 +98,20 @@ extension DetailViewController: MFMailComposeViewControllerDelegate{
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
 
-        controller.dismissViewControllerAnimated(true) { 
-            
+        switch result.rawValue {
+        case MFMailComposeResultCancelled.rawValue:
+            print("Mail cancelled")
+        case MFMailComposeResultSaved.rawValue:
+            print("Mail saved")
+        case MFMailComposeResultSent.rawValue:
+            print("Mail sent")
+        case MFMailComposeResultFailed.rawValue:
+            print("Mail sent failure: \(error!.localizedDescription)")
+        default:
+            break
         }
+        dismissViewControllerAnimated(true, completion: nil)
+
     }
 
 }
