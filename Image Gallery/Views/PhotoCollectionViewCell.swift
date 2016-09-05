@@ -11,6 +11,10 @@ import UIKit
 class PhotoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var photoImageView: UIImageView!
+    @IBOutlet var photoHeight: NSLayoutConstraint!
     
+    @IBOutlet var photoWidth: NSLayoutConstraint!
     
+    @IBOutlet var authorLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
 }
