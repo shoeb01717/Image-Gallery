@@ -81,14 +81,14 @@ extension GalleryViewController: UICollectionViewDataSource {
             
         }
         var width:Float?
-        if let widthValue:Float = Float(photo.imageWidth) {
-            width = widthValue
+        if let widthValue = photo.imageWidth {
+            width = Float(widthValue)
         } else {
             width = 100.0
         }
         var height:Float?
-        if let heightValue:Float = Float(photo.imageHeight) {
-            height = heightValue
+        if let heightValue = photo.imageHeight {
+            height = Float(heightValue)
         } else {
             height = 100.0
         }
